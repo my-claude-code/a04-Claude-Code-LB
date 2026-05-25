@@ -90,10 +90,25 @@ resource "azurerm_network_security_group" "nsg" {
   }
 }
 
-resource "azurerm_subnet_network_security_group_association" "agw"   { subnet_id = azurerm_subnet.agw.id;   network_security_group_id = azurerm_network_security_group.nsg.id }
-resource "azurerm_subnet_network_security_group_association" "web"   { subnet_id = azurerm_subnet.web.id;   network_security_group_id = azurerm_network_security_group.nsg.id }
-resource "azurerm_subnet_network_security_group_association" "app"   { subnet_id = azurerm_subnet.app.id;   network_security_group_id = azurerm_network_security_group.nsg.id }
-resource "azurerm_subnet_network_security_group_association" "mysql" { subnet_id = azurerm_subnet.mysql.id; network_security_group_id = azurerm_network_security_group.nsg.id }
+resource "azurerm_subnet_network_security_group_association" "agw" {
+  subnet_id                 = azurerm_subnet.agw.id
+  network_security_group_id = azurerm_network_security_group.nsg.id
+}
+
+resource "azurerm_subnet_network_security_group_association" "web" {
+  subnet_id                 = azurerm_subnet.web.id
+  network_security_group_id = azurerm_network_security_group.nsg.id
+}
+
+resource "azurerm_subnet_network_security_group_association" "app" {
+  subnet_id                 = azurerm_subnet.app.id
+  network_security_group_id = azurerm_network_security_group.nsg.id
+}
+
+resource "azurerm_subnet_network_security_group_association" "mysql" {
+  subnet_id                 = azurerm_subnet.mysql.id
+  network_security_group_id = azurerm_network_security_group.nsg.id
+}
 
 # ── NAT Gateway — outbound internet for web and app tiers ────────────────────
 resource "azurerm_public_ip" "nat" {
