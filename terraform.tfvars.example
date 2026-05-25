@@ -1,5 +1,6 @@
-# Copy to terraform.tfvars and fill in the two values below.
+# Copy to terraform.tfvars and fill in the three values below.
 # terraform.tfvars is gitignored — never committed.
 
 subscription_id     = "your-azure-subscription-id"
 entra_client_secret = "your-entra-client-secret"
+entra_tenant_id     = "your-entra-tenant-id"
